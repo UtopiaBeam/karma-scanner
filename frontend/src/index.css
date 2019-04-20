@@ -14,14 +14,6 @@ code {
 }
 
 @font-face {
-  font-family: 'SOV_watta';
-  font-style: normal;
-  font-weight: 400;
-  src: local('SOV_watta'), 
-      url('./fonts/SOV_watta/SOV_watta.ttf') format('truetype');
-}
-
-@font-face {
   font-family: 'KRR-Thaispirit';
   font-style: normal;
   font-weight: 400;

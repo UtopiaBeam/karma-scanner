@@ -1,5 +1,54 @@
 .component-result {
     position: relative;
-    width: 100%;
-    height: 100%;
+    background-image: url("../images/old-temple.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #000000;
+    height: 100vh;
+}
+
+.title {
+    font-family: 'KRR-Thaispirit';
+    font-size: 24pt;
+    color: white;
+}
+
+.text-large {
+    font-family: 'KRR-Thaispirit';
+    font-size: 20pt;
+    color: white;
+}
+
+.return {
+    color: white;
+}
+
+.return:hover {
+    color: brown;
+}
+
+p {
+    font-family: 'KRR-Thaispirit';
+    font-size: 16pt;
+    color: white;
+}
+
+@media only screen and (min-width: 992px) {
+    .title {
+        font-family: 'KRR-Thaispirit';
+        font-size: 32pt;
+        color: white;
+    }
+
+    .text-large {
+        font-family: 'KRR-Thaispirit';
+        font-size: 24pt;
+        color: white;
+    }
+
+    p {
+        font-family: 'KRR-Thaispirit';
+        font-size: 20pt;
+        color: white;
+    }
 }
