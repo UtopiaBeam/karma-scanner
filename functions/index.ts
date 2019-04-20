@@ -9,6 +9,8 @@ function getRandomDayInMilliseconds() {
 
 export function karma(req: Request, res: Response) {
     const { birthday, firstName, lastName } = req.body;
+    res.set('Access-Control-Allow-Origin', "*")
+    res.set('Access-Control-Allow-Methods', 'GET, POST')
     if (!birthday || !firstName || !lastName) {
         res.status(400).send({
             message: 'Please complete every field!',
