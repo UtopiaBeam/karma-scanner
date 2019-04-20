@@ -2,16 +2,18 @@ import React from 'react';
 import './Home.css';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
-const component_css = "d-flex d-lg-inline-flex flex-row align-self-center align-self-lg-start offset-lg-2"
+const component_css =
+  'd-flex d-lg-inline-flex flex-row align-self-center align-self-lg-start offset-lg-2';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      birthday: undefined,
-      firstName: undefined,
-      lastName: undefined,
+      birthday: '',
+      firstName: '',
+      lastName: '',
       redirect: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -32,8 +34,9 @@ class Home extends React.Component {
       url: 'https://us-central1-karmascanner.cloudfunctions.net/karma',
       data: this.state,
     });
+    console.log(data);
     this.setState({
-      deathday: data.deathday,
+      ...data,
       redirect: true,
     });
   }
@@ -46,6 +49,7 @@ class Home extends React.Component {
             pathname: '/result',
             state: {
               deathday: this.state.deathday,
+              realm: this.state.realm,
             },
           }}
         />
@@ -53,40 +57,48 @@ class Home extends React.Component {
     }
 
     return (
-      <div className="component-home d-flex p-2 flex-column justify-content-center">
-        <div className={ component_css }>
+      <div>
+        <Helmet>
+          <title>สแกนกรรม</title>
+        </Helmet>
+        <div className="component-home d-flex p-2 flex-column justify-content-center">
+          <div className={component_css}>
             <h1 className="title">วัดผลกรรม</h1>
-        </div>
-        <div className={ component_css }>
+          </div>
+          <div className={component_css}>
             <form onSubmit={this.onFormSubmit}>
-                <p className="label p-0 m-0">ชื่อ</p>
-                <input
-                    className="form-control translucent custom-font"
-                    type="text"
-                    name="firstName"
-                    value={this.state.firstName}
-                    onChange={this.handleChange}
-                />
-                <p className="label p-0 m-0">นามสกุล</p>
-                <input
-                    className="form-control translucent custom-font"
-                    type="text"
-                    name="lastName"
-                    value={this.state.lastName}
-                    onChange={this.handleChange}
-                />
-                <p className="label p-0 m-0">ชาตกรรม</p>
-                <input
-                    className="form-control translucent mb-3 custom-font"
-                    type="date"
-                    name="birthday"
-                    value={this.state.birthday}
-                    onChange={this.handleChange}
-                />
-                <button className="submit-button btn d-flex flex-row m-auto" type="submit">
-                    รับผลกรรม
-                </button>
+              <p className="label p-0 m-0">ชื่อ</p>
+              <input
+                className="form-control translucent custom-font"
+                type="text"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+              <p className="label p-0 m-0">นามสกุล</p>
+              <input
+                className="form-control translucent custom-font"
+                type="text"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleChange}
+              />
+              <p className="label p-0 m-0">ชาตกรรม</p>
+              <input
+                className="form-control translucent mb-3 custom-font"
+                type="date"
+                name="birthday"
+                value={this.state.birthday}
+                onChange={this.handleChange}
+              />
+              <button
+                className="submit-button btn d-flex flex-row m-auto"
+                type="submit"
+              >
+                รับผลกรรม
+              </button>
             </form>
+          </div>
         </div>
       </div>
     );
