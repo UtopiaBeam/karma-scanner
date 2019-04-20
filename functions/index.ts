@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { Realm, getRealm, getRandomInt } from './data';
 
 function getRandomDayInMilliseconds() {
     const MAX_AGE_DAYS: number = 40000;
@@ -22,6 +23,7 @@ export function karma(req: Request, res: Response) {
         const deathday: Date = new Date(
             new Date().getTime() + getRandomDayInMilliseconds(),
         );
-        res.send({ deathday });
+        const realm: Realm = getRealm(getRandomInt(-8, 6));
+        res.send({ deathday, realm });
     }
 }

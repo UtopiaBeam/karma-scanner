@@ -1,9 +1,9 @@
-type Realm = {
+export type Realm = {
     name: string;
     detail: string;
 };
 
-export const hells: Realm[] = [
+const hells: Realm[] = [
     {
         name: 'สัญชีวมหานรก',
         detail:
@@ -46,7 +46,7 @@ export const hells: Realm[] = [
     },
 ];
 
-export const heavens: Realm[] = [
+const heavens: Realm[] = [
     {
         name: 'จาตุมหาราชิกา',
         detail:
@@ -79,7 +79,7 @@ export const heavens: Realm[] = [
     },
 ];
 
-export const mortal: Realm[] = [
+const mortals: Realm[] = [
     {
         name: 'โลกมนุษย์',
         detail: 'ชุบทีมีใบ',
@@ -89,3 +89,17 @@ export const mortal: Realm[] = [
         detail: 'ขอให้โชคดีมีชัยในโลกแฟนตาซี!!',
     },
 ];
+
+export function getRandomInt(min: number, max: number) {
+    return Math.ceil(min + Math.random() * (max - min + 1));
+}
+
+export function getRealm(index: number): Realm {
+    if (index > 0) {
+        return heavens[index - 1];
+    } else if (index < 0) {
+        return hells[-index - 1];
+    } else {
+        return mortals[getRandomInt(0, 1)];
+    }
+}
