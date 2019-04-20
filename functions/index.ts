@@ -12,7 +12,7 @@ export function karma(req: Request, res: Response) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
-    if (req.method === 'OPTION') {
+    if (req.method === 'OPTIONS') {
         res.sendStatus(204);
     } else if (!birthday || !firstName || !lastName) {
         res.status(400).send({
