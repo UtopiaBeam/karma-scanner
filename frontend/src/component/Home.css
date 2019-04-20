@@ -1,6 +1,6 @@
 .component-home {
     position: relative;
-    background-image: url("../img/bg-buddha.png");
+    background-image: url("../images/bg-buddha.png");
     background-position: left center;
     background-repeat: no-repeat;
     background-color: #000000;
@@ -10,10 +10,42 @@
 @media only screen and (min-width: 992px) {
     .component-home {
         position: relative;
-    background-image: url("../img/bg-buddha.png");
+    background-image: url("../images/bg-buddha.png");
     background-position: right center;
     background-repeat: no-repeat;
     background-color: #000000;
     height: 100vh;
     }
-} 
+}
+
+.title {
+    font-family: 'KRR-Thaispirit';
+    font-size: 40pt;
+    color: white;
+}
+
+.label {
+    font-family: 'KRR-Thaispirit';
+    font-size: 20pt;
+    color: white;
+}
+
+.custom-font {
+    font-family: 'KRR-Thaispirit';
+}
+
+.submit-button {
+    font-family: 'KRR-Thaispirit';
+    font-size: 24pt;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.submit-button:hover {
+    color: brown;
+}
+
+.translucent {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}

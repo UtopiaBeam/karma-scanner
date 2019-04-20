@@ -1,10 +1,9 @@
 import React from 'react';
 import './Home.css';
-import bg from '../img/bg-buddha.png';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-const classes = "d-flex d-lg-inline-flex p-auto flex-row align-self-center align-self-lg-start offset-lg-2"
+const component_css = "d-flex d-lg-inline-flex flex-row align-self-center align-self-lg-start offset-lg-2"
 
 class Home extends React.Component {
   constructor(props) {
@@ -52,49 +51,46 @@ class Home extends React.Component {
         />
       );
     }
+
     return (
-      <div className="component-home row">
-        <img
-          className="background col m-0 p-0"
-          src={bg}
-          alt="Buddha looking judgmentally"
-        />
-        <div className="form text-center">
-          <h1 className="row">วัดผลกรรม</h1>
-          <div className="row">
-            <form className="col" onSubmit={this.onFormSubmit}>
-              <p className="row">ชื่อ</p>
-              <input
-                type="text"
-                name="firstName"
-                className="row"
-                value={this.state.firstName}
-                onChange={this.handleChange}
-              />
-              <p className="row">นามสกุล</p>
-              <input
-                type="text"
-                name="lastName"
-                className="row"
-                value={this.state.lastName}
-                onChange={this.handleChange}
-              />
-              <p className="row">ชาตกรรม</p>
-              <input
-                type="date"
-                name="birthday"
-                className="row"
-                value={this.state.birthday}
-                onChange={this.handleChange}
-              />
-              <button type="submit" className="row">
-                รับผลกรรม
-              </button>
+      <div className="component-home d-flex p-2 flex-column justify-content-center">
+        <div className={ component_css }>
+            <h1 className="title">วัดผลกรรม</h1>
+        </div>
+        <div className={ component_css }>
+            <form onSubmit={this.onFormSubmit}>
+                <p className="label p-0 m-0">ชื่อ</p>
+                <input
+                    className="form-control translucent custom-font"
+                    type="text"
+                    name="firstName"
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
+                />
+                <p className="label p-0 m-0">นามสกุล</p>
+                <input
+                    className="form-control translucent custom-font"
+                    type="text"
+                    name="lastName"
+                    value={this.state.lastName}
+                    onChange={this.handleChange}
+                />
+                <p className="label p-0 m-0">ชาตกรรม</p>
+                <input
+                    className="form-control translucent mb-3 custom-font"
+                    type="date"
+                    name="birthday"
+                    value={this.state.birthday}
+                    onChange={this.handleChange}
+                />
+                <button className="submit-button btn d-flex flex-row m-auto" type="submit">
+                    รับผลกรรม
+                </button>
             </form>
-          </div>
         </div>
       </div>
     );
   }
 }
+
 export default Home;
