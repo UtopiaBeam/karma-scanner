@@ -91,7 +91,7 @@ const mortals: Realm[] = [
 ];
 
 export function getRandomInt(min: number, max: number) {
-    return Math.ceil(min + Math.random() * (max - min + 1));
+    return Math.floor(min + Math.random() * (max - min + 1));
 }
 
 export function getRealm(index: number): Realm {
