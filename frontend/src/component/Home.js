@@ -4,6 +4,8 @@ import bg from '../img/bg-buddha.png';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
+const classes = "d-flex d-lg-inline-flex p-auto flex-row align-self-center align-self-lg-start offset-lg-2"
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
