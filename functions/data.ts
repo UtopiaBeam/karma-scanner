@@ -1,3 +1,5 @@
+import md5 from 'md5';
+
 export type Realm = {
     name: string;
     detail: string;
@@ -92,6 +94,11 @@ const mortals: Realm[] = [
 
 export function getRandomInt(min: number, max: number) {
     return Math.floor(min + Math.random() * (max - min + 1));
+}
+
+export function getHashed(str: string) {
+    const hashed: string = md5(str).slice(0, 8);
+    return parseInt(hashed);
 }
 
 export function getRealm(index: number): Realm {
