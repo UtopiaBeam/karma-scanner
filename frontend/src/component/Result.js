@@ -148,12 +148,12 @@ class Result extends React.Component {
         <Helmet>
           <title>รับผลกรรม</title>
         </Helmet>
-        <div className="black-curtain" />
-        <div className="component-result" />
-        <div className="over container-fluid">
+        <div className="black-curtain m-0 p-0" />
+        <div className="component-result m-0 p-0" />
+        <div className="over container-fluid m-0 p-0">
             {particlesSnow}
         </div>
-        <div className="over main-content d-flex p-2 flex-column justify-content-center align-items-center">
+        <div className="over main-content d-flex p-2 flex-column justify-content-center align-items-center m-0 p-0">
             <p className="title">ผลกรรมของคุณ</p>
           <p>{'คุณจะตายวันที่ ' + this.getDateString()}</p>
           <p className="text-center">
