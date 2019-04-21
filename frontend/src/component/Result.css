@@ -8,23 +8,20 @@
     animation: fade-in ease 2s;
 }
 
+.expand-y {
+    height: 100vh;
+}
+
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.95);
     height: 100vh;
     width: 100vw;
     display: none;
     vertical-align: middle;
-}
-
-.overlay-text {
-    opacity: 1;
-}
-
-.expand-y {
-    height: 100vh;
+    animation: fade-in ease 2s;
 }
 
 .title {

@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import './Result.css';
 import { Helmet } from 'react-helmet';
 import Particles from "react-particles-js";
+import nyancat from '../images/nyancat.gif';
 
 const cssShow = { display: 'inline' };
 const cssHide = { display: 'none' };
+const imgNyan = <img width="50%" src={nyancat} alt="nyan cat" />;
 const particlesBubble = (
     <Particles
         width={window.innerWidth}
@@ -154,7 +156,7 @@ class Result extends React.Component {
         </Helmet>
         <div className="black-curtain" />
         <div className="component-result" />
-        <div className="over">
+        <div className="over container-fluid">
             {particlesSnow}
         </div>
         <div className="over main-content d-flex p-2 flex-column justify-content-center align-items-center">
@@ -179,15 +181,16 @@ class Result extends React.Component {
           className="overlay container-fluid"
           onClick={this.handleClose}
         >
-          <div className="row align-items-center expand-y">
-            <div className="col">
-              <p className="mb-3 mx-lg-5 text-center title overlay-text">
+          <div className="main-content d-flex p-2 flex-column justify-content-center align-items-center">
+            <p className="mb-3 mx-lg-5 text-center title overlay-text">
                 {this.state.realm.name}
-              </p>
-              <p className="mb-3 mx-lg-5 text-center overlay-text">
+            </p>
+            <p className="mb-3 mx-lg-5 text-center overlay-text">
+                {this.state.realm.name === "โลกแฟนตาซี" ? imgNyan : null }
+            </p>
+            <p className="mb-3 mx-lg-5 text-center overlay-text">
                 {this.state.realm.detail}
-              </p>
-            </div>
+            </p>
           </div>
         </div>
       </>
