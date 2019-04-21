@@ -71,12 +71,6 @@ const particlesSnow = (
         height={window.innerHeight}
         params={{
             "particles": {
-                "color": {
-                    "value": "#000000"
-                },
-                "opacity": {
-                    "value": 0.8
-                },
                 "number": {
                     "value": 160,
                     "density": {

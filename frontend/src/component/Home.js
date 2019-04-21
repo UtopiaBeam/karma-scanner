@@ -4,7 +4,10 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Particles from "react-particles-js";
+import dhammy from '../images/dhammy.jpg';
 
+const cssShow = { display: 'inline' };
+const cssHide = { display: 'none' };
 const component_css =
   'd-flex d-lg-inline-flex flex-row align-self-center align-self-lg-start offset-lg-2';
 const particlesFloat = (
@@ -13,15 +16,6 @@ const particlesFloat = (
   height={window.innerHeight}
   params={{
       "particles": {
-          "color": {
-              "value": "#000000"
-          },
-          "opacity": {
-              "value": 0.8,
-              "anim": {
-                "enable": false
-              }
-          },
           "number": {
               "value": 160,
               "density": {
@@ -70,12 +64,14 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: false,
       birthday: '',
       firstName: '',
       lastName: '',
       redirect: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
@@ -84,6 +80,11 @@ class Home extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleClick(event) {
+    this.setState({ isLoading: true, });
+    this.onFormSubmit(event)
   }
 
   async onFormSubmit(event) {
@@ -129,7 +130,7 @@ class Home extends React.Component {
             <h1 className="title">วัดผลกรรม</h1>
           </div>
           <div className={component_css}>
-            <form onSubmit={this.onFormSubmit}>
+            <form onSubmit={this.handleClick}>
               <p className="label p-0 m-0">ชื่อ</p>
               <input
                 className="form-control translucent custom-font"
@@ -161,6 +162,11 @@ class Home extends React.Component {
                 รับผลกรรม
               </button>
             </form>
+          </div>
+        </div>
+        <div style={this.state.isLoading ? cssShow : cssHide} className="overlay container-fluid">
+          <div className="main-content d-flex p-2 flex-column justify-content-center align-items-center">
+            <img src={ dhammy } alt="Dhammy"/>
           </div>
         </div>
       </div>
