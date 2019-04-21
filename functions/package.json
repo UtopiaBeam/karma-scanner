@@ -1,0 +1,22 @@
+{
+  "name": "karma-scanner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/UtopiaBeam/karma-scanner.git",
+  "author": "UtopiaBeam <utopiabeam@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"**/*.ts\""
+  },
+  "dependencies": {
+    "md5": "^2.2.1",
+    "typescript": "^3.4.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/md5": "^2.1.33",
+    "express": "^4.16.4",
+    "prettier": "^1.17.0"
+  }
+}
