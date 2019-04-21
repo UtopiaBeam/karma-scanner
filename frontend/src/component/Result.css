@@ -8,19 +8,6 @@
     animation: fade-in ease 2s;
 }
 
-.result-texts {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    animation: fade-n-slide-in ease 2s;
-}
-
-.over {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .overlay {
     position: absolute;
     top: 0;

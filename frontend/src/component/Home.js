@@ -3,9 +3,68 @@ import './Home.css';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Particles from "react-particles-js";
 
 const component_css =
   'd-flex d-lg-inline-flex flex-row align-self-center align-self-lg-start offset-lg-2';
+const particlesFloat = (
+  <Particles
+  width={window.innerWidth}
+  height={window.innerHeight}
+  params={{
+      "particles": {
+          "color": {
+              "value": "#000000"
+          },
+          "opacity": {
+              "value": 0.8,
+              "anim": {
+                "enable": false
+              }
+          },
+          "number": {
+              "value": 160,
+              "density": {
+                  "enable": false
+              }
+          },
+          "size": {
+              "value": 5,
+              "random": true,
+              "anim": {
+                  "speed": 4,
+                  "size_min": 0.3
+              }
+          },
+          "line_linked": {
+              "enable": false
+          },
+          "move": {
+              "random": true,
+              "speed": 1,
+              "direction": "none",
+              "out_mode": "bounce"
+          }
+      },
+      "interactivity": {
+          "events": {
+              "onhover": {
+                  "enable": true,
+                  "mode": "bubble"
+              }
+          },
+          "modes": {
+              "bubble": {
+                  "distance": 250,
+                  "duration": 2,
+                  "size": 0,
+                  "opacity": 0
+              }
+          }
+      }
+  }}
+/>
+);
 
 class Home extends React.Component {
   constructor(props) {
@@ -61,7 +120,11 @@ class Home extends React.Component {
         <Helmet>
           <title>สแกนกรรม</title>
         </Helmet>
-        <div className="component-home d-flex p-2 flex-column justify-content-center">
+        <div className="component-home" />
+        <div className="over container-fluid">
+          {particlesFloat}
+        </div>
+        <div className="over main-content d-flex p-2 flex-column justify-content-center">
           <div className={component_css}>
             <h1 className="title">วัดผลกรรม</h1>
           </div>

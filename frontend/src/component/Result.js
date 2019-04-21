@@ -2,9 +2,121 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Result.css';
 import { Helmet } from 'react-helmet';
+import Particles from "react-particles-js";
 
 const cssShow = { display: 'inline' };
 const cssHide = { display: 'none' };
+const particlesBubble = (
+    <Particles
+        width={window.innerWidth}
+        height={window.innerHeight}
+        params={{
+            "particles": {
+                "number": {
+                    "value": 160,
+                    "density": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "speed": 4,
+                        "size_min": 0.3
+                    }
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "random": true,
+                    "speed": 1,
+                    "direction": "top",
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "bubble"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "repulse"
+                    }
+                },
+                "modes": {
+                    "bubble": {
+                        "distance": 250,
+                        "duration": 2,
+                        "size": 0,
+                        "opacity": 0
+                    },
+                    "repulse": {
+                        "distance": 400,
+                        "duration": 4
+                    }
+                }
+            }
+        }}
+    />
+);
+const particlesSnow = (
+    <Particles
+        width={window.innerWidth}
+        height={window.innerHeight}
+        params={{
+            "particles": {
+                "color": {
+                    "value": "#000000"
+                },
+                "opacity": {
+                    "value": 0.8
+                },
+                "number": {
+                    "value": 160,
+                    "density": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "speed": 4,
+                        "size_min": 0.3
+                    }
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "random": true,
+                    "direction": "bottom",
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "bubble"
+                    }
+                },
+                "modes": {
+                    "bubble": {
+                        "distance": 250,
+                        "duration": 2,
+                        "size": 0,
+                        "opacity": 0
+                    }
+                }
+            }
+        }}
+    />
+);
 
 class Result extends React.Component {
   constructor(props) {
@@ -36,26 +148,32 @@ class Result extends React.Component {
   }
   render() {
     return (
-      <div>
+      <>
         <Helmet>
           <title>รับผลกรรม</title>
         </Helmet>
-        <div className="component-result d-flex p-2 flex-column justify-content-center align-items-center">
-          <p className="title">ผลกรรมของคุณ</p>
+        <div className="black-curtain" />
+        <div className="component-result" />
+        <div className="over">
+            {particlesSnow}
+        </div>
+        <div className="over main-content d-flex p-2 flex-column justify-content-center align-items-center">
+            <p className="title">ผลกรรมของคุณ</p>
           <p>{'คุณจะตายวันที่ ' + this.getDateString()}</p>
           <p className="text-center">
-            และไปจุติที่
+            และไปจุติที่ 
             <button className="btn text-btn" onClick={this.handleShow}>
               {this.state.realm.name}
             </button>
           </p>
           <button className="btn d-flex flex-column justify-content-end">
-            <Link to="/" className="{return}">
+            <Link to="/" className="transition-ease">
               กลับหน้าแรก
             </Link>
           </button>
         </div>
 
+        {/* Modal */}
         <div
           style={this.state.showModal ? cssShow : cssHide}
           className="overlay container-fluid"
@@ -72,7 +190,7 @@ class Result extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
