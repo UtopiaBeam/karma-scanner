@@ -38,7 +38,6 @@
     font-family: 'KRR-Thaispirit';
     font-size: 24pt;
     color: white;
-    transition: all 0.3s ease 0s;
 }
 
 .submit-button:hover {

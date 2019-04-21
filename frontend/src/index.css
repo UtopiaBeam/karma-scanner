@@ -19,3 +19,37 @@ code {
   font-weight: 400;
   src: local('KRR-Thaispirit'), url('./fonts/KRR-Thaispirit/KRR-Thaispirit/KRR-THAISPIRIT.ttf') format('truetype');
 }
+
+.transition-ease, button {
+  -webkit-transition:  all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.black-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-n-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

@@ -5,6 +5,20 @@
     background-repeat: no-repeat;
     background-color: #000000;
     height: 100vh;
+    animation: fade-in ease 2s;
+}
+
+.result-texts {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    animation: fade-n-slide-in ease 2s;
+}
+
+.over {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .overlay {
@@ -56,7 +70,6 @@ p {
     font-family: 'KRR-Thaispirit';
     font-size: 16pt;
     color: white;
-    transition: all 0.3s ease 0s;
 }
 
 .text-btn:hover {
@@ -86,6 +99,5 @@ p {
         font-family: 'KRR-Thaispirit';
         font-size: 20pt;
         color: white;
-        transition: all 0.3s ease 0s;
     }
 }
